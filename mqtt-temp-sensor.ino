@@ -35,6 +35,8 @@ void setupWiFi() {
 }
 
 void setupMQTT() {
+  digitalWrite(LED_BUILTIN, HIGH);
+
   if(WiFi.status() != WL_CONNECTED) {
     setupWiFi();
   }
@@ -42,7 +44,7 @@ void setupMQTT() {
   client.begin(MQTT_BROKER, 1883, net);
   Serial.print("Connecting to MQTT broker...");
 
-  while (!client.connect(THINGNAME)) {
+  while (!client.connect(MQTT_CLIENT_ID)) {
     Serial.print(".");
     delay(100);
   }
@@ -52,12 +54,15 @@ void setupMQTT() {
     return;
   }
 
+  digitalWrite(LED_BUILTIN, LOW);
   Serial.println("OK");
 }
 
 void setup() {
   Serial.begin(9600);
   delay(1500); // extra time to allow host to connect
+
+  pinMode(LED_BUILTIN, OUTPUT);
   
   setupSensor();
 }
