@@ -27,6 +27,7 @@ Create a file called "secrets.h" and set the following constants.  Note that "se
 * MQTT_BROKER - the hostname or IP address (e.g., `IPAddress(192, 168, 1, 1)`) of the MQTT broker.
 * TEMP_TOPIC - the name of the topic to publish temperature messages.
 * HUMIDITY_TOPIC - the name of the topic to publish humidity messages.
+* LOOP_DELAY - integer representing the delay in milliseconds at the end of loop().
 
 ## Example Output
 

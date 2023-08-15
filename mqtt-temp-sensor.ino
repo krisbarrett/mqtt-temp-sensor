@@ -101,5 +101,5 @@ void loop() {
   publishMeasurement(HUMIDITY_TOPIC, "humidity", humidity_event.relative_humidity);
 
   client.loop();
-  delay(1000);
+  delay(LOOP_DELAY);
 }
